@@ -25,6 +25,15 @@ class Gradebook {
     Gradebook(const std::string catName, const double weight);
 
     std::string return_string();
+    
+     //find individual grade
+    void single_grade(int index);
+
+    //prints overall grade of this category 
+    void category_grade();
+
+    //print all category grades and category total 
+    void all_grades();
 
 
 };
