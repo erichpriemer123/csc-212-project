@@ -1,81 +1,197 @@
 #include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include "Gradebook.cpp"
-int main(int argc, char* argv[]) {
-    //gradebook object created
-    GradeBook course;
-    //this makes a variable that grabs the argument from commandline
-    std::string file_name(argv[1]);
-    //create input file stream (takes in file_name)
-    std::ifstream input_file_stream(file_name);
-    //takes in a string which will be used to grab a line in the txt file
-    std::string txt_line;
-    std::getline(input_file_stream, txt_line);
-    //this grabs the first getline and updates the course_name
-    course.name_course(txt_line);
-    //string stream created
-    std::istringstream s_stream(txt_line);
+#include "Gradebook.h"
+    std::string fileCheck();
+    std::vector<Gradebook> dataCollect(std::string);
+//std::get<1>indiv_assignments
+    int main(int argc, char * argv[]) {
+        //First configuration of program,  executable is run without any command line arguments
+        if (argc==1) {
+            std::cout << "Hi welcome to the Gradebook program. You have not input any command line arguments and have just run the executable" << std::endl;
+            std::cout << "Please input text file" << std::endl;
+            std::cout << "Please type out the name of your input file!" << std::endl;
+            std::string file;
+            file = fileCheck();
+            std::vector<Gradebook> categoryObjects = dataCollect(file);
 
-    //main while loop for the rest of the lines in txt
-    //this will put the data from the file into their respective vectors
-    //TODO-working with stringstream: we need to grab the last two variables on the line, perhaps making a dummy variable for the first...
-    while(std::getline(input_file_stream, txt_line)){
-        if(txt_line[0] == 'A'){
-            //this should string stream the next 2 values of the line
+            //Luca's switch statement below line 16
+            int choice;
+            while (choice != 0) {
+                std::cout << "Please select an integer 1-5: " << std::endl;
+                std::cout << "--------Individual----" << std::endl;
+                std::cout << "1: returns individual grade based on category name" << std::endl;
+                std::cout << "--------Category------" << std::endl;
+                std::cout << "2: return all grades from a category and its total" << std::endl;
+                std::cout << "--------Course--------" << std::endl;
+                std::cout << "3: print all grades from category and the course overall" << std::endl;
+                std::cout << "4: print category and course total" << std::endl;
+                std::cout << "5: print the overall course grade" << std::endl;
+                std::cout << "-------------------------------" << std::endl;
+                std::cout << "0: terminate program" << std::endl;
+                //im going to put the choice variable into a switch statement
+                //TODO- put in the functions according to what the option needs
+                switch (choice) {
+                    //finding individual grade
+                    case 1: {
+                        std::string category_search;
+                        std::cout << "Enter category name:" << std::endl;
+                        std::cin >> category_search;
+                        //search for particular grade
+                        for (int i = 0; i < categoryObjects.size(); i++) {
+                            if (category_search == categoryObjects[i].Category) {
+                                std::string individual_search;
+                                std::cout << "Enter individual grade name:" << std::endl;
+                                std::cin >> individual_search;
+                                Gradebook selected_category = categoryObjects[i];
+                                for (int j = 0; j < selected_category.catIndividuals.size(); i++) {
+                                    //get<0> is catIndividuals at tuple 0
+                                    if (individual_search == std::get<0>(selected_category.catIndividuals[j])) {
+                                        //runs function
+                                        selected_category.single_grade(j);
+                                    } else {
+                                        std::cout << "Grade not included in text file." << std::endl;
+                                    }
+                                }
+                            } else {
+                                std::cout << "Category not included in text file." << std::endl;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                        //case 2: returns all grades from a category and its total
+                    case 2: {
+                        std::string category_search;
+                        std::cout << "Enter category name:" << std::endl;
+                        std::cin >> category_search;
+                        //search for particular grade
+                        for (int i = 0; i < categoryObjects.size(); i++) {
+                            if (category_search == categoryObjects[i].Category) {
+                                //TODO: enter function here
+                            } else {
+                                std::cout << "Category not included in text file." << std::endl;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    //case 3: print all grades from a category and course overall
+                    case 3: {
+                        std::string category_search;
+                        std::cout << "Enter category name:" << std::endl;
+                        std::cin >> category_search;
+                        for (int i = 0; i < categoryObjects.size(); i++) {
+                            if (category_search == categoryObjects[i].Category) {
+                                //TODO: enter category function here
+                                //TODO: enter course total function here
+                                //TODO: enter all grades function here
+                            } else {
+                                std::cout << "Category not included in text file." << std::endl;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    //case 4: print category and course total
+                    case 4: {
+                        std::string category_search;
+                        std::cout << "Enter category name:" << std::endl;
+                        std::cin >> category_search;
+                        for (int i = 0; i < categoryObjects.size(); i++) {
+                            if (category_search == categoryObjects[i].Category) {
+                                //TODO: enter category function here
+                                //TODO: enter course total function here
+                            } else {
+                                std::cout << "Category not included in text file." << std::endl;
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                    //case 5: print the overall course grade
+                    case 5: {
+                        //TODO:enter course grade function here
 
+                        break;
+                    }
+                }
+                break;
+
+            }
         }
-        if(txt_line[0] == 'L'){
+        //TODO: make output of input file into the inputfile
 
-        }
-        if(txt_line[0] == 'P'){
-
-        }
-
+        return 0;
     }
-    int choice;
-    while(choice != 0){
-        std::cout << "Please select an integer 1-5: ";
-        std::cout << "--------Individual----" << std::endl;
-        std::cout << "1: returns individual grade based on category name" << std::endl;
-        std::cout << "--------Category------" << std::endl;
-        std::cout << "2: return all grades from a category and its total" << std::endl;
-        std::cout << "--------Course--------" << std::endl;
-        std::cout << "3: print all grades from category and the course overall" << std::endl;
-        std::cout << "4: print category and course total" << std::endl ;
-        std::cout << "5: print the overall course grade" << std::endl;
-        std::cout << "-------------------------------" << std::endl;
-        std::cout << "0: terminate program" << std::endl;
-        //im going to put the choice variable into a switch statement
-        //TODO- put in the functions according to what the option needs
-        switch(choice) {
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-            case 5:
-
-                break;
-            case 0:
-                std::cout << "program terminated, goodbye" << std::endl;
-                return 0;
-            default:
-                std::cout << "invalid integer, please try again" << std::endl;
+//Recursive function to make sure the file exists and repeats until a valid file is processed
+    std::string fileCheck(){
+        std::string fileName;
+        std::cin >> fileName;
+        std::ifstream file(fileName);
+        try {
+            if (!file.is_open()) {
+                throw std::runtime_error("Unable to open file \"" + fileName + "\", please re-enter file name:\n");
+            } else {
+                std::cout<<"Gradebook is now being processed using input data of: "+fileName<<std::endl;
+                return fileName;
+            }
+        } catch (std::exception &e){
+            fileName = fileCheck();
         }
-
     }
-
-
-
-
-}
+//Collects data from file and appends them to the appropriate Gradebook object
+    std::vector<Gradebook> dataCollect(std::string file){
+        std::ifstream dataFile(file);
+        std::string temp;
+        std::vector<std::string> courseList;
+        //Pushes back course names to courseList vector, vector if multiple course names
+        while (std::getline(dataFile, temp)) {
+            courseList.push_back(temp);
+            //If detects / in line begin next process of data collection
+            if (temp[0] == '/') {
+                break;
+            }
+        }
+        std::string tempCat;
+        double tempWeight;
+        std::vector<std::pair<std::string, double>> categories;
+        //creates a vector that holds a pair representing the category name, and weight in points
+        while(std::getline(dataFile, temp)){
+            std::stringstream foo(temp);
+            foo >> tempCat;
+            foo >> tempWeight;
+            categories.push_back(std::make_pair(tempCat,tempWeight));
+            if (temp[0] == '/') {
+                break;
+            }
+        }
+        //Creates categories.size() amount of Gradebook objects to store individual
+        //Assignment data in a vector containing a tuple
+        std::vector<Gradebook> categoryObjects;
+        for (int i = 0; i<categories.size();i++){
+            Gradebook object = Gradebook(categories[i].first, categories[i].second);
+            categoryObjects.push_back(object);
+        }
+        std::tuple<std::string, double, double> individual;
+        std::string cat;
+        std::string assignmentName;
+        double ptsEarned;
+        double ptsPossible;
+        while(std::getline(dataFile, temp)) {
+            std::stringstream foo(temp);
+            foo >> cat;
+            foo >> assignmentName;
+            foo >> ptsEarned;
+            foo >> ptsPossible;
+            individual = make_tuple(assignmentName, ptsEarned, ptsPossible);
+            for (int i = 0; i < categoryObjects.size();i++){
+                if (cat==categoryObjects[i].return_string()){
+                    categoryObjects[i].catIndividuals.push_back(individual);
+                }
+            }
+            if (temp[0] == '/') {
+                dataFile.close();
+                break;
+            }
+        }
+        return categoryObjects;
+    }
