@@ -124,15 +124,11 @@ int main(int argc, char * argv[]) {
                             std::cout << "Enter individual grade name:" << std::endl;
                             std::cin >> individual_search;
                             category selected_category = grade_book.categories[i];
-                            for (int j = 0; j < selected_category.catIndividuals.size(); i++) {
+                            for (int j = 0; j < selected_category.catIndividuals.size(); j++) {
                                 //get<0> is catIndividuals at tuple 0
                                 if (individual_search == std::get<0>(selected_category.catIndividuals[j])) {
                                     //runs function
                                     selected_category.print_single_grade(j+1);
-                                    break;
-                                }
-                                else {
-                                    std::cout << "Grade not included in text file." << std::endl;
                                     break;
                                 }
 
@@ -140,13 +136,10 @@ int main(int argc, char * argv[]) {
                             //added break because it was outputting else below
                             break;
                         }
-                        else {
-                            std::cout << "Category not included in text file." << std::endl;
-                            break;
-                        }
+
                     }
-                    break;
                 }
+                    break;
 
                     //case 2: returns all grades from a category and its total
                 case 2: {
@@ -154,14 +147,12 @@ int main(int argc, char * argv[]) {
                     std::cout << "Enter category name:" << std::endl;
                     std::cin >> category_search;
                     //search for particular grade
-                    for (int i = 0; i < categoryObjects.size(); i++) {
+                    for (int i = 0; i < grade_book.categories.size(); i++) {
                         if (category_search == grade_book.categories[i].category_name) {
-                            category single_category = grade_book.categories[i];
+                            std::cout<< "If statement ran with: "<<grade_book.categories[i].category_name;
+                            //category single_category = grade_book.categories[i];
                             //TODO: enter function here
-                            single_category.category_grade();
-                        } else {
-                            std::cout << "Category not included in text file." << std::endl;
-                            break;
+                            grade_book.categories[i].category::category_grade();
                         }
                     }
                     break;
@@ -223,4 +214,3 @@ int main(int argc, char * argv[]) {
     //TODO: make output of input file into the inputfile
 
     return 0;
-}
