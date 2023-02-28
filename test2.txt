@@ -1,0 +1,129 @@
+MTH_141
+/
+Homework 24
+Classwork 10
+Exam1 14
+Exam2 14
+Exam3 14
+Fexam 24
+/
+Homework HW1 1 1
+Homework HW2 .5 1
+Homework HW3 .7 1
+Homework HW4 .5 1
+Homework HW5 1 1
+Homework HW6 1 1
+Homework HW7 1 1
+Homework HW8 1 1
+Homework HW9 1 1
+Homework HW10 1 1
+Homework HW11 1 1
+Homework HW12 1 1
+Homework HW13 1 1
+Homework HW14 1 1
+Homework HW15 1 1
+Homework HW16 1 1
+Homework HW17 1 1
+Homework HW18 1 1
+Homework HW19 1 1
+Homework HW20 1 1
+Homework HW21 1 1
+Homework HW22 1 1
+Homework HW23 1 1
+Homework HW24 1 1
+Classwork CW1 1 1
+Classwork CW2 1 1
+Classwork CW3 1 1
+Classwork CW4 1 1
+Classwork CW5 1 1
+Classwork CW6 1 1
+Classwork CW7 1 1
+Classwork CW8 1 1
+Classwork CW9 1 1
+Classwork CW10 1 1
+Exam1 Exam_1 14 14
+Exam2 Exam_2 14 14
+Exam3 Exam_3 14 14
+Fexam Final_Exam 24 24
+/
+        ChangeLog
+-----------------------
+Your final grade is: 98.7
+Grade for Homework: 94.5833%
+Grade for HW1: 100%
+Grade for HW2: 50%
+Grade for HW3: 70%
+Grade for HW4: 50%
+Grade for HW5: 100%
+Grade for HW6: 100%
+Grade for HW7: 100%
+Grade for HW8: 100%
+Grade for HW9: 100%
+Grade for HW10: 100%
+Grade for HW11: 100%
+Grade for HW12: 100%
+Grade for HW13: 100%
+Grade for HW14: 100%
+Grade for HW15: 100%
+Grade for HW16: 100%
+Grade for HW17: 100%
+Grade for HW18: 100%
+Grade for HW19: 100%
+Grade for HW20: 100%
+Grade for HW21: 100%
+Grade for HW22: 100%
+Grade for HW23: 100%
+Grade for HW24: 100%
+Grade for Exam_1: 100%
+Grade for Homework: 94.5833%
+Grade for HW1: 100%
+Grade for HW2: 50%
+Grade for HW3: 70%
+Grade for HW4: 50%
+Grade for HW5: 100%
+Grade for HW6: 100%
+Grade for HW7: 100%
+Grade for HW8: 100%
+Grade for HW9: 100%
+Grade for HW10: 100%
+Grade for HW11: 100%
+Grade for HW12: 100%
+Grade for HW13: 100%
+Grade for HW14: 100%
+Grade for HW15: 100%
+Grade for HW16: 100%
+Grade for HW17: 100%
+Grade for HW18: 100%
+Grade for HW19: 100%
+Grade for HW20: 100%
+Grade for HW21: 100%
+Grade for HW22: 100%
+Grade for HW23: 100%
+Grade for HW24: 100%
+Grade for Homework: 94.5833%
+Your final grade is: 98.7
+Grade for Homework: 94.5833%
+Grade for HW1: 100%
+Grade for HW2: 50%
+Grade for HW3: 70%
+Grade for HW4: 50%
+Grade for HW5: 100%
+Grade for HW6: 100%
+Grade for HW7: 100%
+Grade for HW8: 100%
+Grade for HW9: 100%
+Grade for HW10: 100%
+Grade for HW11: 100%
+Grade for HW12: 100%
+Grade for HW13: 100%
+Grade for HW14: 100%
+Grade for HW15: 100%
+Grade for HW16: 100%
+Grade for HW17: 100%
+Grade for HW18: 100%
+Grade for HW19: 100%
+Grade for HW20: 100%
+Grade for HW21: 100%
+Grade for HW22: 100%
+Grade for HW23: 100%
+Grade for HW24: 100%

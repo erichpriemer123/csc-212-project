@@ -1,0 +1,30 @@
+BOT_420
+/
+Homework 100
+Classwork 10
+Exam 300
+/
+Homework HW1 1 10
+Homework HW2 1 10
+Homework HW3 1 10
+Homework HW4 1 10
+Homework HW5 1 10
+Homework HW6 1 10
+Homework HW7 1 10
+Homework HW8 1 10
+Homework HW9 1 10
+Homework HW10 1 10
+Classwork CW1 1 1
+Classwork CW2 1 1
+Classwork CW3 1 1
+Classwork CW4 1 1
+Classwork CW5 1 1
+Classwork CW6 1 1
+Classwork CW7 1 1
+Classwork CW8 1 1
+Classwork CW9 1 1
+Classwork CW10 1 1
+Exam Exam_1 200 300
+/
+        ChangeLog
+-----------------------
