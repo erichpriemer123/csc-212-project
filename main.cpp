@@ -39,7 +39,7 @@ void Gradebook_Funcs(std::vector<category> categories, std::string file) {
                             //get<0> is catIndividuals at tuple 0
                             if (individual_search == std::get<0>(selected_category.catIndividuals[j])) {
                                 //runs function
-                                selected_category.print_single_grade(j + 1);
+                                selected_category.print_single_grade(j + 1, file);
                                 break;
                             }
                         }
@@ -58,7 +58,7 @@ void Gradebook_Funcs(std::vector<category> categories, std::string file) {
                 for (int i = 0; i < categories.size(); i++) {
                     if (category_search == categories[i].category_name) {
                         //TODO: enter function here
-                        categories[i].print_category_grade();
+                        categories[i].print_category_grade(file);
                     }
                 }
                 break;
@@ -70,7 +70,7 @@ void Gradebook_Funcs(std::vector<category> categories, std::string file) {
                 std::cin >> category_search;
                 for (int i = 0; i < categories.size(); i++) {
                     if (category_search == categories[i].category_name) {
-                        categories[i].print_all_grades();
+                        categories[i].print_all_grades(file);
                     }
                 }
                 break;
@@ -82,9 +82,9 @@ void Gradebook_Funcs(std::vector<category> categories, std::string file) {
                 std::cin >> category_search;
                 for (int i = 0; i < categories.size(); i++) {
                     if (category_search == categories[i].category_name) {
-                        categories[i].print_category_grade();
+                        categories[i].print_category_grade(file);
                         gradebook gradebook(categories);
-                        gradebook.print_course_grade();
+                        gradebook.print_course_grade(file);
                     }
                 }
                 break;
@@ -92,7 +92,7 @@ void Gradebook_Funcs(std::vector<category> categories, std::string file) {
                 //case 5: print the overall course grade
             case 5: {
                 gradebook gradebook(categories);
-                gradebook.print_course_grade();
+                gradebook.print_course_grade(file);
                 break;
             }
         }

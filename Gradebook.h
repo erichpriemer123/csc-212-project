@@ -17,11 +17,10 @@ public:
     //"Name of object" as object names cant be customized in runtime
     std::string category_name;
     double catWeight;
+    std::string file;
     //every object created by the Gradebook class stores individual assignments,
     // the total points earned for the assignment, and the total points possible
     std::vector<std::tuple<std::string, double, double>> catIndividuals;
-    //default constructor
-    category();
     //Gradebook object constructor
     category(const std::string catName, const double weight);
     std::string return_string();
@@ -35,27 +34,26 @@ public:
     double category_sum();
     //print methods-------------------------------------------------------------
     //prints individual grade
-    void print_single_grade(int index);
+    void print_single_grade(int index, std::string file);
     //prints overall grade of this category
-    void print_category_grade();
+    void print_category_grade(std::string file);
     //print all category grades and category total
-    void print_all_grades();
+    void print_all_grades(std::string file);
 };
 class gradebook {
 
 public:
+    std::string file;
     std::vector<category> categories;
     double total_points_earned;
     double total_possible_points;
-    //default constructor
-    gradebook();
     //gradebook constructor
     //sets course total by adding up catweight of each
     gradebook(std::vector<category> categoryObjects);
     //calculates final grade
     double course_grade();
     //prints out all category totals and course overall
-    void print_course_grade();
+    void print_course_grade(std::string file);
     void print_cat_course_grades();
     void print_all();
 };

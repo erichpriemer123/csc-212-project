@@ -3,11 +3,6 @@
 //
 #include "Gradebook.h"
 //-----------------course_constructors------------------------------------//
-category::category() {
-    category_name;
-    catWeight;
-    catIndividuals;
-}
 category::category(const std::string catName, const double weight) {
     category_name = catName;
     catWeight = weight;
@@ -41,35 +36,34 @@ double category::category_sum() {
     return sum;
 }
 //-----------------------------------------print methods----------------------------------------------------------------------//
-void category::print_single_grade(int index){
-
+void category::print_single_grade(int index, std::string file){
+    std::fstream openFile;
+    openFile.open(file, std::ios::app);
     std::string grade_name = std::get<0>(catIndividuals[index-1]);
     double final = single_grade(index);
-
     std::cout << "Grade for " << grade_name << ": " << final << "%" << "\n";
+    openFile<<"Grade for " << grade_name << ": " << final << "%" << std::endl;
 }
-void category::print_category_grade() {
+void category::print_category_grade(std::string file) {
+    std::fstream openFile;
+    openFile.open(file, std::ios::app);
     double final = category_grade();
+    openFile << "Grade for " << category_name << ": " << final << "%" << std::endl;
     std::cout << "Grade for " << category_name << ": " << final << "%" << "\n";
 }
 //combination of last two methods
-void category::print_all_grades() {
+void category::print_all_grades(std::string file) {
     //prints out category overall grade
-    print_category_grade();
+    print_category_grade(file);
     //prints out all grades from a category
     for (int i = 0; i < catIndividuals.size(); i++) {
-        print_single_grade(i+1);
+        print_single_grade(i+1, file);
     }
 }
 
 //----------------------grade_book_methods---------------------------------------//
 
 //----------------constructors-----------------//
-gradebook::gradebook() {
-    categories;
-    total_possible_points;
-}
-
 gradebook::gradebook(std::vector<category> categoryObjects) {
 
     //sets
@@ -92,21 +86,24 @@ double gradebook::course_grade() {
 
 //--print functions----------------------------------------------------------//
 //prints only the course overall--------------//
-void gradebook::print_course_grade() {
+void gradebook::print_course_grade(std::string file) {
+    std::fstream openFile;
+    openFile.open(file, std::ios::app);
+    openFile << "Your final grade is: " << course_grade() << std::endl;
     std::cout << "Your final grade is: " << course_grade() << "\n";
 }
 //prints only category totals and course overall//
 void gradebook::print_cat_course_grades() {
-    print_course_grade();
+    print_course_grade(file);
     for (int i = 0; i < categories.size(); i++) {
-        categories[i].print_category_grade();
+        categories[i].print_category_grade(file);
     }
 }
 //prints all grades within their respective categories and a course overall
 void gradebook::print_all() {
-    print_course_grade();
+    print_course_grade(file);
     for (int i = 0; i < categories.size(); i++) {
         std::cout << "-------------------------------------" << "\n";
-        categories[i].print_all_grades();
+        categories[i].print_all_grades(file);
     }
 }
